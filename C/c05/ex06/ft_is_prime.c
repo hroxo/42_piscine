@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 12:33:30 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/27 12:36:51 by hroxo            ###   ########.fr       */
+/*   Created: 2025/07/27 18:16:47 by hroxo             #+#    #+#             */
+/*   Updated: 2025/07/27 19:51:55 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index)
+int	ft_is_prime(int nb)
 {
-	if (index == 0)
+	int	nbr;
+	int	score;
+
+	score = 0;
+	nbr = nb;
+	if (nb < 2)
 		return (0);
-	else if (index == 1)
-		return (1);
-	if (index < 0)
-		return (-1);
-	return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
+	while (nbr > 1)
+	{
+		if (nb % nbr == 0)
+			score++;
+		nbr--;
+	}
+	if (score > 1)
+		return (0);
+	return (1);
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+	(void) argc;
+	printf("if 1 is prime: %i", ft_is_prime(atoi(argv[1])));
 }

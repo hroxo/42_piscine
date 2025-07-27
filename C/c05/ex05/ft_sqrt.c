@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 12:33:30 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/27 12:36:51 by hroxo            ###   ########.fr       */
+/*   Created: 2025/07/27 14:20:48 by hroxo             #+#    #+#             */
+/*   Updated: 2025/07/27 16:30:41 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_fibonacci(int index)
+int	ft_sqrt(int nb)
 {
-	if (index == 0)
+	int	nbr;
+
+	nbr = 1;
+	if (nb < 1)
 		return (0);
-	else if (index == 1)
-		return (1);
-	if (index < 0)
-		return (-1);
-	return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
+	while (nbr * nbr <= nb)
+	{
+		nbr++;
+	}
+	nbr--;
+	if (nbr * nbr == nb)
+		return (nbr);
+	return (0);
 }
