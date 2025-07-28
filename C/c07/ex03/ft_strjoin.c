@@ -34,46 +34,60 @@ char	*ft_strcat(char *dest, char *src)
 		n++;
 		i++;
 	}
-	dest[i] = 0;
+	dest[n] = 0;
 	return (dest);
+}
+int	total_len(int size, char **strs, char *sep)
+{
+	int	i;
+	int	len;
+
+	len = 0;
+	i = 0;
+	while (i < size)
+	{
+		len += ft_strlen(strs[i]);
+		if (i < size - 1)
+			len += ft_strlen(sep);
+		i++;
+	}
+	return (len + 1);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
-	int		n;
-	char	*out;
-	int		len;
+	char	*output;
 
 	if (size < 1)
-		return (0);
-	len = 0;
-	n = 0;
-	while (n < size)
 	{
-		len += ft_strlen(strs[n]);
-		if (n < size - 1)
-			len += ft_strlen(sep);
-		n++;
+		output = malloc(1);
+		if (output == 0)
+			return (output);
+		output[0] = 0;
+		return (output);
 	}
-	out = malloc(len + 1);
+	output = malloc(total_len(size, strs, sep));
 	i = 0;
-	out[0] = 0;
+	if (output == 0)
+		return (0);
+	output[0] = 0;
 	while (i < size)
 	{
-		ft_strcat(out, strs[i]);
-		if (n < size - 1)
-			ft_strcat(out, sep);
+		ft_strcat(output, strs[i]);
+		if (i < size - 1)
+			ft_strcat(output, sep);
 		i++;
 	}
-	return (out);
+	return (output);
 }
 
 #include <stdio.h>
-int	main (int argc, char **argv)
+int	main ()
 {
-	(void) argc;
-	char *arr = ft_strjoin(3, argv, "//");
-	printf("%s", arr);
-	free(arr);
+	char *strings[] = {"Olá", "mundo", "42", "estou", "cansado"};
+	char *joined = ft_strjoin(7, strings, "//");
+	printf("%s\n", joined);
+	free(joined);
+
 }
