@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 12:45:31 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/28 19:03:59 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/07/30 12:14:48 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -27,13 +27,4 @@ int	*ft_range(int min, int max)
 		i++;
 	}
 	return (tab);
-}
-
-#include <stdio.h>
-int main(int c, char **v)
-{
-	(void) c;
-	int *tab = ft_range(atoi(v[1]), atoi(v[2]));
-	for (int i = 0, dif =atoi(v[2]) -atoi(v[1]); i < dif; i++)
-		printf("%i ", tab[i]);
 }

@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 17:27:53 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/28 22:08:58 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/07/29 12:23:32 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -37,6 +37,7 @@ char	*ft_strcat(char *dest, char *src)
 	dest[n] = 0;
 	return (dest);
 }
+
 int	total_len(int size, char **strs, char *sep)
 {
 	int	i;
@@ -80,14 +81,4 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 		i++;
 	}
 	return (output);
-}
-
-#include <stdio.h>
-int	main ()
-{
-	char *strings[] = {"Olá", "mundo", "42", "estou", "cansado"};
-	char *joined = ft_strjoin(7, strings, "//");
-	printf("%s\n", joined);
-	free(joined);
-
 }
