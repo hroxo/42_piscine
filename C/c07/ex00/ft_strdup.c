@@ -27,11 +27,23 @@ char	*ft_strdup(char *src)
 	int		n;
 
 	n = 0;
-	dest = malloc(ft_strlen(src));
+	dest = malloc(ft_strlen(src) * sizeof(char) + 1);
+	if	(dest == 0)
+		return (0);
 	while (src[n])
 	{
 		dest[n] = src[n];
 		n++;
 	}
+	dest[n] = 0; 
 	return (dest);
+}
+
+#include <stdio.h>
+int main ()
+{
+	char *src = "Ola meu amor";
+	char *str = ft_strdup(src);
+	printf("%s", str);
+	free(str);
 }
