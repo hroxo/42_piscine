@@ -1,0 +1,6 @@
+theme: solarized
+text color: full-white #FFFFFF
+background: DARKBLUE #002B36
+
+FONT: JetBrainMONO medium
+apperance: starship preset gruvbox-rainbow -o ~/.config/starship.toml
