@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 08:32:29 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/30 12:26:43 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/07/31 14:07:44 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	size_nbr(int nbr, char *base_to)
 	return (size);
 }
 
-void	trans_out(int nbr, char *out, int *i, char *base)
+void	trans_out(long nbr, char *out, int *i, char *base)
 {
 	int	len;
 	int	j;
