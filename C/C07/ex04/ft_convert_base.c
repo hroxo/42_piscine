@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 14:46:50 by hroxo             #+#    #+#             */
-/*   Updated: 2025/07/29 19:57:35 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/02 17:21:18 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check(char *base)
 	while (base[i])
 	{
 		if (base[i] == '-' || base[i] == '+'
-			|| base[i] < 33 || base[i] == 126)
+			|| base[i] < 33 || base[i] > 126)
 			return (0);
 		j = i + 1;
 		while (base[j])

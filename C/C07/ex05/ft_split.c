@@ -6,7 +6,7 @@
 /*   By: hroxo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:04:09 by hroxo             #+#    #+#             */
-/*   Updated: 2025/08/02 15:34:29 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/02 19:38:05 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -49,21 +49,21 @@ int	count_words(char *str, char *charset)
 	return (score);
 }
 
-char	*ft_strncpy(char *dest, char *src, unsigned int size)
+char	*ft_strdup(char *src, int size)
 {
-	unsigned int	n;
+	char	*dest;
+	int		n;
 
 	n = 0;
+	dest = malloc(size + 1);
+	if (dest == 0)
+		return (0);
 	while (src[n] && n < size)
 	{
 		dest[n] = src[n];
 		n++;
 	}
-	while (n < size)
-	{
-		dest[n] = 0;
-		n++;
-	}
+	dest[n] = 0;
 	return (dest);
 }
 
@@ -77,6 +77,8 @@ char	**ft_split(char *str, char *charset)
 	n = 0;
 	i = 0;
 	out = malloc(sizeof(char *) * (count_words(str, charset) + 1));
+	if (!out)
+		return (NULL);
 	while (str[n])
 	{
 		while (str[n] && is_charset(str[n], charset))
@@ -84,24 +86,24 @@ char	**ft_split(char *str, char *charset)
 		w = 0;
 		while (!is_charset(str[n + w], charset) && str[n + w])
 			w++;
-		out[i] = malloc(sizeof(char) * (w + 1));
-		ft_strncpy(out[i], &str[n], w);
-		out[i][w] = 0;
-		i++;
-		n += w;
+		if (w > 0)
+		{
+			out[i++] = ft_strdup(&str[n], w);
+			n += w;
+		}
 	}
-	out[i] = 0;
+	out[i] = NULL;
 	return (out);
 }
 /*
 #include <stdio.h>
 int	main()
 {
-	char **miau = ft_split("ola tudo ;bem/ na ;area/; adeus   ", "/;");
+	char **miau = ft_split("sda;s;s;s;s", "/;");
 
 	for(int i = 0; i < 5; i++)
 	{
-		printf("%s", miau[i]);
+		printf("%s\n\n", miau[i]);
 		free(miau[i]);
 	}
 	free(miau);
