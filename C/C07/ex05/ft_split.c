@@ -6,7 +6,7 @@
 /*   By: hroxo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 20:04:09 by hroxo             #+#    #+#             */
-/*   Updated: 2025/08/02 19:38:05 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/02 19:51:28 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -95,16 +95,16 @@ char	**ft_split(char *str, char *charset)
 	out[i] = NULL;
 	return (out);
 }
-/*
+
 #include <stdio.h>
 int	main()
 {
-	char **miau = ft_split("sda;s;s;s;s", "/;");
+	char **miau = ft_split("sdassss", "/;");
 
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 2; i++)
 	{
 		printf("%s\n\n", miau[i]);
 		free(miau[i]);
 	}
 	free(miau);
-}*/
+}
