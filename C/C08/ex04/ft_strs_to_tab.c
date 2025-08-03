@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
+#include "ft_stock_str.h" 
 int	ft_strlen(char *str)
 {
 	int	n;
@@ -44,6 +45,8 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
     t_stock_str *arr;
 	
 	arr = malloc(sizeof(t_stock_str) * (ac + 1));
+	if (!arr)
+		return (NULL);
 	i = 0;
 	while (i < ac)
 	{
@@ -53,5 +56,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		i++;
 	}
 	arr[i].str = 0;
+	arr[i].copy = 0;
+	arr[i].size = 0;
 	return (arr)
 }
