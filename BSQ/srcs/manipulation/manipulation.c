@@ -28,6 +28,44 @@ struct s_map	inicializer(void)
     map_rules.obstacle = 0;
 	return (map_rules);
 }
+char	*join_map(struct s_map map_rules, char *first_line, int fd)
+{
+	int		w;
+	char	file_char;
+	char	*output_map;
+
+	w = 0;
+	output_map = malloc(sizeof(char) * ((map_rules.x_axis * map_rules.y_axis) + 1));
+	if (!output_map)
+	{
+		free(first_line);
+		close(fd);
+		return (output_map);
+	}
+	while(read(fd, &file_char, 1))
+	{
+		if (file_char != '\n')
+		{
+			output_map[w] = file_char;
+			w++;
+		}
+	}
+	output_map[w] = 0;
+	return (output_map);
+}
+
+struct s_map	input(char *first_line, int first_line_len, int x, int fd)
+{
+	struct s_map map_rules;
+	
+	map_rules.full = first_line[first_line_len - 1];
+	map_rules.obstacle = first_line[first_line_len - 2];
+	map_rules.empty = first_line[first_line_len - 3];
+	map_rules.y_axis = ft_natoi(first_line, (first_line_len - 3));
+	map_rules.x_axis = x;
+	map_rules.map = join_map(map_rules, first_line, fd);
+	return (map_rules);
+}
 
 struct s_map	rules(char *file_name)
 {
@@ -36,16 +74,12 @@ struct s_map	rules(char *file_name)
 	char			*first_line;
 	int				first_line_len;
 	struct s_map	map_rules;
-	int				find_new_line;
 	int				x;
-	int				w;
 	int				new_line_counter;
 	int				i;
 
 	map_rules = inicializer();
 	i = 0;
-	w = 0;
-	find_new_line = 0;
 	first_line_len = 0;
 	new_line_counter = 0;
 	x = 0;
@@ -81,27 +115,7 @@ struct s_map	rules(char *file_name)
 		i++;
 	}
 	first_line[first_line_len] = 0;
-	map_rules.full = first_line[first_line_len - 1];
-	map_rules.obstacle = first_line[first_line_len - 2];
-	map_rules.empty = first_line[first_line_len - 3];
-	map_rules.y_axis = ft_natoi(first_line, (first_line_len - 3));
-	map_rules.x_axis = x; 
-	map_rules.map = malloc(sizeof(char) * ((map_rules.x_axis * map_rules.y_axis) + 1));
-	if (!map_rules.map)
-	{
-		free(first_line);
-		close(fd);
-		return (map_rules);
-	}
-	while(read(fd, &file_char, 1))
-	{
-		if (file_char != '\n')
-		{
-			map_rules.map[w] = file_char;
-			w++;
-		}
-	}
-	map_rules.map[w] = 0;
+	map_rules = input(first_line, first_line_len, x, fd);
 	free(first_line);
 	close(fd);
 	return (map_rules);
