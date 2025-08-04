@@ -6,13 +6,13 @@
 /*   By: hroxo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 11:03:40 by hroxo             #+#    #+#             */
-/*   Updated: 2025/08/01 11:16:58 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/04 14:54:20 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
-# define ABS(Value) ((Value < 0) (Value *= -1))
+# define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
 
 #endif

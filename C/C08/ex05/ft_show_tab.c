@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 11:05:46 by hroxo             #+#    #+#             */
+/*   Updated: 2025/08/04 14:52:42 by hroxo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
+#include "ft_stock_str.h"
 
 void	ft_putnbr(int nb)
 {
@@ -29,14 +42,14 @@ void	ft_putstr(char *str)
 	}
 }
 
-void ft_show_tab(struct s_stock_str *par)
+void	ft_show_tab(struct s_stock_str *par)
 {
 	int	i;
-	
+
 	if (!par)
 		return ;
 	i = 0;
-	while (par[i].str)	
+	while (par[i].str)
 	{
 		ft_putstr(par[i].str);
 		write (1, "\n", 1);
