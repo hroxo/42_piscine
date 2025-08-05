@@ -6,11 +6,12 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 15:51:35 by hroxo             #+#    #+#             */
-/*   Updated: 2025/08/04 17:58:55 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/05 19:06:31 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include "ft_helper.h"
+#include <stdlib.h>
 
 int	ft_strlen(char *str);
 

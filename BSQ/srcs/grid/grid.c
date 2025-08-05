@@ -6,7 +6,7 @@
 /*   By: ando-sou <ando-sou@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:51:49 by ando-sou          #+#    #+#             */
-/*   Updated: 2025/08/04 18:26:36 by ando-sou         ###   ########.fr       */
+/*   Updated: 2025/08/05 20:58:08 by ando-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	*create_line(int board_w, char *board, char *chars, int i)
 		if (board[i * board_w + j] == chars[1])
 			line[j] = 0;
 		else
-			line[j] = -1;
+			line[j] = 1;
 	}
 	line[j] = -2;
 	return (line);
@@ -55,6 +55,52 @@ int	**create_grid(char *board, long board_w, long board_h, char *chars)
 	return (grid);
 }
 
+void	bbq(int **grid, int j, int i, int max)
+{
+	int	y;
+	int	x;
+
+	y = i;
+	while (y > i - max)
+	{
+		x = j;
+		while (x > j - max)
+		{
+			grid[y][x] = 2;
+			x--;
+		}
+		y--;
+	}
+}
+
+void	draw_bbq(int **grid, int max, int i, int j)
+{
+	int		found;
+
+	found = 1;
+	while (grid[i])
+	{
+		j = 0;
+		while (grid[i][j] != -2)
+		{
+			if (grid[i][j] == max && found == 1)
+			{
+				found = 0;
+				bbq(grid, j, i, max);
+			}
+			else
+			{
+				if (grid[i][j] != 0)
+					grid[i][j] = 0;
+				else
+					grid[i][j] = 1;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 void	show_grid(int **grid, char *charsets)
 {
 	long	i;
@@ -66,7 +112,7 @@ void	show_grid(int **grid, char *charsets)
 		j = 0;
 		while (grid[i][j] != -2)
 		{
-			ft_putchar(charsets[grid[i][j] + 1]);
+			ft_putchar(charsets[grid[i][j]]);
 			j++;
 		}
 		free(grid[i]);
