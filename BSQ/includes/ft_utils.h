@@ -13,6 +13,7 @@
 #ifndef FT_UTILS_H
 # define FT_UTILS_H
 
+char			*ft_create_string(char a, char b, char c);
 struct s_map	rules(char *file_name, int x, int fd, int first_line_len);
 int				check_map_is_valid(struct s_map map);
 char			*ft_strjoin(int size, char **strs);

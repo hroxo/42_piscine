@@ -41,12 +41,10 @@ int	get_around(int **grid, int x, int y, int n)
 
 int	check_poss(int **grid, int x, int y)
 {
-	int	i;
 	int	j;
 	int	max;
 
 	max = 0;
-	i = 0;
 	while (grid[y] != NULL)
 	{
 		j = 1;
