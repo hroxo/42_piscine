@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_string.c                                 :+:      :+:    :+:   */
+/*   ft_creat_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 18:09:14 by ando-sou          #+#    #+#             */
-/*   Updated: 2025/08/05 21:06:43 by ando-sou         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:30:39 by ando-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -19,10 +19,7 @@ char	*ft_create_string(char a, char b, char c)
 
 	dest = malloc(sizeof(char) * 4);
 	if (!dest)
-	{
-		ft_putstr(MAP_ERROR);
-		exit(1);
-	}
+		return (NULL);
 	dest[0] = a;
 	dest[1] = b;
 	dest[2] = c;

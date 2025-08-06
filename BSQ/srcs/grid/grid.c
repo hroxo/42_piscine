@@ -6,7 +6,7 @@
 /*   By: ando-sou <ando-sou@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:51:49 by ando-sou          #+#    #+#             */
-/*   Updated: 2025/08/05 20:58:08 by ando-sou         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:21:00 by ando-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	*create_line(int board_w, char *board, char *chars, int i)
 	return (line);
 }
 
-// Null terminated grid
 int	**create_grid(char *board, long board_w, long board_h, char *chars)
 {
 	int		**grid;

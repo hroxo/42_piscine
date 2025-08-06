@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_remove_nl.c                                     :+:      :+:    :+:   */
+/*   ft_stdin.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ando-sou <ando-sou@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 18:00:51 by ando-sou          #+#    #+#             */
-/*   Updated: 2025/08/06 11:05:14 by ando-sou         ###   ########.fr       */
+/*   Created: 2025/08/06 13:52:09 by ando-sou          #+#    #+#             */
+/*   Updated: 2025/08/06 14:10:07 by ando-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_STDIN_H
+# define FT_STDIN_H
 
-char	*ft_remove_nl(char *str)
-{
-	int		i;
-	int		l;
-	char	*final_str;
+struct s_map	inicializer(void);
+struct s_map	rules_stdin(int fd, int x, int first_line_len);
+void			helper_map(char *buf, int *first_line_len, int *x);
+char			*read_all_fd(int fd, int *out_len, int total, int i);
 
-	i = -1;
-	l = 0;
-	while (str[++i])
-		if (str[i] != '\n')
-			l++;
-	final_str = malloc(l + 1);
-	i = 0;
-	l = 0;
-	while (str[i])
-	{
-		if (str[i] != '\n')
-		{
-			final_str[l] = str[i];
-			l++;
-		}
-		i++;
-	}
-	final_str[l] = 0;
-	return (final_str);
-}
+#endif

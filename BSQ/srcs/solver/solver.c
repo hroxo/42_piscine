@@ -6,7 +6,7 @@
 /*   By: ando-sou <ando-sou@student.42porto.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:34:51 by ando-sou          #+#    #+#             */
-/*   Updated: 2025/08/05 15:30:42 by ando-sou         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:19:03 by ando-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	check_poss(int **grid, int x, int y)
 	int	j;
 	int	max;
 
-	max = 0;
+	max = -1;
 	while (grid[y] != NULL)
 	{
 		j = 1;

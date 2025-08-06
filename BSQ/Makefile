@@ -6,7 +6,7 @@ INCLUDES    = -Iincludes -Isrcs/util/includes
 SRC         = $(wildcard srcs/**/*.c) main.c
 OBJ         = $(SRC:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) -o $(NAME)

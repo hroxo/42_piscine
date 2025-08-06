@@ -6,7 +6,7 @@
 /*   By: hroxo <hroxo@student.42porto.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:27:16 by hroxo             #+#    #+#             */
-/*   Updated: 2025/08/05 20:28:25 by hroxo            ###   ########.fr       */
+/*   Updated: 2025/08/06 11:06:51 by hroxo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_structs.h"
@@ -30,8 +30,7 @@ int	verify_map(struct s_map map, int w)
 		else
 		{
 			if (!(map.map[i] == map.full
-				|| map.map[i] == map.obstacle
-				|| map.map[i] == map.empty))
+					|| map.map[i] == map.obstacle || map.map[i] == map.empty))
 				return (1);
 		}
 		i++;
