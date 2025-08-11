@@ -1,7 +1,0 @@
-syntax on
-set number relativenumber
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-set autoindent
-set smarttab
