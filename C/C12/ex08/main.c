@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "ft_list.h"
 
+void    ft_list_reverse(t_list **begin_list);
+
 t_list	*create_elem(void *data)
 {
 	t_list	*obj;
@@ -23,8 +25,6 @@ void	print_t(t_list *obj)
 	printf("\n");
 }
 
-void    ft_list_reverse(t_list **begin_list);
-
 int main (int argc, char **argv)
 {
 	t_list	*new_node;
@@ -34,11 +34,8 @@ int main (int argc, char **argv)
 	for (int i = 1; i < argc; i++) 
 	{
 		new_node = create_elem((void *)(long)atoi(argv[i]));
-		if (new_node)
-		{
-			new_node->next = head;
-			head = new_node;
-		}
+		new_node->next = head;
+		head = new_node;
 	}
 	printf("Original list\n");
 	print_t(head);
