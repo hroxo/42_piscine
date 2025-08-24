@@ -1,23 +1,21 @@
 #include "ft_list.h"
 #include <stdlib.h>
 
-void ft_list_reverse(t_list **begin_list)
+void	ft_list_reverse(t_list **begin_list)
 {
-	t_list	*current;
-	t_list	*temp;
-	int	length;
+	t_list	*curr;
+	t_list	*prev;
+	t_list	*next;
 
-	length = 0;
-	while (current->next == NULL)
+	curr = *begin_list;
+	prev = NULL;
+	next = NULL;
+	while (curr != NULL)
 	{
-		current = *begin_list;
-		length++;
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
 	}
-	while ((length / 2) > 0)
-	{
-		temp = current;
-		current = *begin_list;
-		*begin_list = temp;
-		length--;
-	}
+	*begin_list = prev;
 }
